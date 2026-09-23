@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101010" />
+  <meta name="description" content="MADZ BARBERSHOP — Potongan rapi, gaya berkelas." />
+  <title>MADZ BARBERSHOP | Potongan Berkelas</title>
+  <style>
+    :root{--bg:#101010;--panel:#191919;--gold:#d7ad60;--gold2:#f3d99c;--text:#f7f4ed;--muted:#aaa69d;--line:#333}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:82px}
+    body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .container{width:min(1120px,92%);margin:auto}
+    header{position:sticky;top:0;z-index:20;background:rgba(16,16,16,.94);backdrop-filter:blur(12px);border-bottom:1px solid #292929}
+    .nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{font-weight:900;letter-spacing:2px;font-size:1.15rem}.brand span{color:var(--gold)}
+    .nav-links{display:flex;align-items:center;gap:24px;color:#d4d0c8;font-size:.92rem}
+    .nav-links a:hover{color:var(--gold)}
+    .menu-btn{display:none;background:none;border:1px solid #444;color:white;border-radius:8px;padding:7px 11px}
+    .hero{min-height:590px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:40px;padding:70px 0}
+    .eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:3px;font-size:.78rem;font-weight:700}
+    h1{font-size:clamp(2.6rem,6vw,5rem);line-height:1.02;margin:18px 0}
+    h1 em{font-style:normal;color:var(--gold)}
+    .hero p{color:var(--muted);max-width:510px;margin-bottom:28px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:8px;padding:12px 20px;font-weight:700;border:1px solid var(--gold);transition:.2s}
+    .btn.primary{background:var(--gold);color:#17130b}.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+    .btn.ghost{color:var(--gold)}
+    .hero-art{min-height:390px;border-radius:18px;position:relative;overflow:hidden;border:1px solid #4c3b20;background:radial-gradient(ellipse at 50% 25%,#514126 0%,#242018 38%,#151515 72%)}
+    .hero-art:before{content:"";position:absolute;width:240px;height:310px;border-radius:48% 48% 30% 30%;background:linear-gradient(110deg,#171717,#34312b,#111);left:50%;top:48%;transform:translate(-50%,-42%);box-shadow:0 0 70px #000}
+    .hero-art:after{content:"✦";position:absolute;top:24px;right:28px;color:var(--gold);font-size:2rem}
+    .art-label{position:absolute;bottom:24px;left:24px;right:24px;text-align:center;color:var(--gold2);letter-spacing:4px;font-size:.72rem}
+    section{padding:72px 0}
+    .section-head{text-align:center;margin-bottom:36px}
+    .section-head h2{font-size:clamp(1.8rem,4vw,2.7rem);margin:8px 0}
+    .section-head p{color:var(--muted)}
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .service{background:var(--panel);border:1px solid #2c2c2c;border-radius:12px;padding:24px;transition:.2s}
+    .service:hover{border-color:#80652f;transform:translateY(-4px)}
+    .service .number{color:var(--gold);font-size:.8rem;letter-spacing:2px}
+    .service h3{margin:10px 0 6px}.service p{color:var(--muted);font-size:.92rem;min-height:48px}
+    .price{color:var(--gold2);font-weight:800;font-size:1.2rem;margin-top:18px}
+    .about{background:#151515;border-top:1px solid #252525;border-bottom:1px solid #252525}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:42px;align-items:center}
+    .about-card{border:1px solid #3c3220;border-radius:14px;padding:28px;background:linear-gradient(145deg,#211d16,#151515)}
+    .about-card strong{font-size:2.5rem;color:var(--gold);display:block}
+    .about p{color:var(--muted);margin-top:12px}
+    .features{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+    .feature{border:1px solid #333;border-radius:8px;padding:12px;color:#ded8cc;font-size:.9rem}
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .gallery-item{height:220px;border-radius:12px;border:1px solid #383024;background:linear-gradient(135deg,#28231b,#121212);display:grid;place-items:center;color:var(--gold);font-size:2rem;overflow:hidden}.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}.gallery-item:hover img{transform:scale(1.05)}
+    .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .info{background:var(--panel);border:1px solid #2c2c2c;border-radius:12px;padding:24px}
+    .info h3{color:var(--gold);margin-bottom:10px}.info p,.info li{color:var(--muted)}
+    .info ul{list-style:none}.info li{padding:5px 0}
+    .cta{text-align:center;background:linear-gradient(120deg,#292114,#151515 70%);border:1px solid #4a3a20;border-radius:16px;padding:42px 20px}
+    .cta h2{font-size:clamp(1.7rem,4vw,2.5rem);margin:8px 0 12px}.cta p{color:var(--muted);margin-bottom:22px}
+    footer{padding:26px 0;color:#888;border-top:1px solid #292929;font-size:.85rem}
+    .footer-inner{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}.reveal.visible{opacity:1;transform:none}
+    @media(max-width:760px){
+      .nav{height:64px}.menu-btn{display:block}.nav-links{display:none;position:absolute;top:64px;left:0;right:0;background:#151515;padding:18px 4%;border-bottom:1px solid #333;flex-direction:column;align-items:flex-start;gap:14px}.nav-links.open{display:flex}
+      .hero{grid-template-columns:1fr;padding:48px 0;gap:28px;min-height:0}.hero-art{min-height:270px}
+      .services{grid-template-columns:1fr}.service p{min-height:0}
+      .about-grid,.info-grid{grid-template-columns:1fr}.gallery{grid-template-columns:1fr 1fr}.gallery-item{height:135px}
+      section{padding:54px 0}.features{grid-template-columns:1fr 1fr}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{transition:none}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home">MADZ<span>.</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Buka menu" aria-expanded="false">☰</button>
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">Beranda</a><a href="#layanan">Layanan</a><a href="#tentang">Tentang</a><a href="#info">Info</a>
+        <a class="btn ghost" href="#booking">Booking</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container hero" id="home">
+      <div class="reveal">
+        <div class="eyebrow">Grooming • Style • Confidence</div>
+        <h1>Potongan Rapi.<br><em>Gaya Berkelas.</em></h1>
+        <p>Tampil percaya diri dengan potongan yang pas untuk gayamu. Pengalaman barbershop yang nyaman, detail, dan penuh karakter.</p>
+        <div class="actions">
+          <a class="btn primary" href="#booking">Booking Sekarang ↗</a>
+          <a class="btn ghost" href="#layanan">Lihat Layanan</a>
+        </div>
+      </div>
+      <div class="hero-art reveal" role="img" aria-label="Ilustrasi barbershop bernuansa hitam emas">
+        <div class="art-label">MADZ BARBERSHOP • EST. 2026</div>
+      </div>
+    </section>
+
+    <section id="layanan">
+      <div class="container">
+        <div class="section-head reveal"><div class="eyebrow">Layanan Kami</div><h2>Detail yang Bikin Beda</h2><p>Pilih layanan yang cocok dengan gaya dan kebutuhanmu.</p></div>
+        <div class="services">
+          <article class="service reveal"><div class="number">01 / CUT</div><h3>Classic Haircut</h3><p>Potongan klasik rapi yang cocok untuk aktivitas sehari-hari.</p><div class="price">Rp35.000</div></article>
+          <article class="service reveal"><div class="number">02 / FADE</div><h3>Fade Haircut</h3><p>Gradasi presisi dengan hasil bersih dan modern.</p><div class="price">Rp45.000</div></article>
+          <article class="service reveal"><div class="number">03 / CARE</div><h3>Haircut + Styling</h3><p>Potong rambut sekaligus styling untuk tampilan maksimal.</p><div class="price">Rp60.000</div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="tentang">
+      <div class="container about-grid">
+        <div class="reveal"><div class="eyebrow">Tentang MADZ</div><h2 style="font-size:clamp(1.9rem,4vw,2.8rem);margin-top:8px">Bukan Sekadar Potong Rambut.</h2>
+          <p>Kami percaya potongan yang tepat bisa meningkatkan rasa percaya diri. MADZ BARBERSHOP hadir dengan suasana santai, pelayanan ramah, dan perhatian pada setiap detail.</p>
+          <div class="features"><div class="feature">✦ Barber berpengalaman</div><div class="feature">✦ Alat bersih & terawat</div><div class="feature">✦ Nyaman dan santai</div><div class="feature">✦ Gaya sesuai keinginan</div></div>
+        </div>
+        <div class="about-card reveal"><span class="eyebrow">Your Style, Our Craft</span><strong>100%</strong><h3>Fokus pada detail</h3><p>Mulai dari konsultasi gaya hingga sentuhan akhir, setiap kunjungan dibuat agar kamu pulang dengan tampilan yang lebih percaya diri.</p></div>
+      </div>
+    </section>
+
+    <section id="galeri">
+      <div class="container">
+        <div class="section-head reveal"><div class="eyebrow">Galeri</div><h2>Clean Cuts. Fresh Looks.</h2><p>Contoh tampilan dan suasana MADZ BARBERSHOP.</p></div>
+        <div class="gallery">
+          <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=85" alt="Interior barbershop" loading="lazy"></div>
+          <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=800&q=85" alt="Gaya rambut barbershop" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='✂'"></div>
+          <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=800&q=85" alt="Peralatan barber" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="info">
+      <div class="container">
+        <div class="section-head reveal"><div class="eyebrow">Kunjungi Kami</div><h2>Waktunya Refresh Gaya</h2></div>
+        <div class="info-grid">
+          <div class="info reveal"><h3>Jam Operasional</h3><ul><li>Senin – Sabtu: 10.00 – 21.00</li><li>Minggu: 12.00 – 20.00</li><li>Booking disarankan saat akhir pekan.</li></ul></div>
+          <div class="info reveal"><h3>Lokasi & Kontak</h3><p>Alamat: Barbershop akan segera hadir — alamat segera ditambahkan.</p><p>WhatsApp: 0895-3600-17621</p><p style="font-size:.82rem;margin-top:8px">*Data alamat dan kontak di atas masih contoh. Ganti sebelum dipublikasikan untuk klien.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="booking">
+      <div class="container">
+        <div class="cta reveal"><div class="eyebrow">Ready for a fresh look?</div><h2>Gaya Baru Dimulai dari Sini.</h2><p>Hubungi MADZ BARBERSHOP untuk tanya jadwal dan booking kunjunganmu.</p>
+          <a class="btn primary" id="bookingBtn" href="#" target="_blank" rel="noopener">Booking via WhatsApp ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container footer-inner"><span>© <span id="year"></span> MADZ BARBERSHOP</span><span>Made with care ✦ MADZ</span></div></footer>
+  <script>
+    // GANTI nomor ini dengan nomor WhatsApp bisnis (kode negara 62, tanpa + atau 0 di depan).
+    const WHATSAPP_NUMBER = "62895360017621";
+    const message = encodeURIComponent("Halo MADZ BARBERSHOP, saya ingin tanya jadwal booking.");
+    document.getElementById("bookingBtn").href = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+    menuBtn.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", String(isOpen));
+      menuBtn.textContent = isOpen ? "✕" : "☰";
+    });
+    navLinks.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      menuBtn.setAttribute("aria-expanded", "false");
+      menuBtn.textContent = "☰";
+    }));
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold: 0.12});
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
